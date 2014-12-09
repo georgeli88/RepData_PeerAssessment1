@@ -158,6 +158,16 @@ print(nrow(data_na), type="html")
 
 
 ```r
+# Devise imputation strategy for missing data
+print("Imputation strategy for missing data: Use the mean for the 5-minute interval to replace NA", type="html")
+```
+
+```
+## [1] "Imputation strategy for missing data: Use the mean for the 5-minute interval to replace NA"
+```
+
+
+```r
 # use the mean for the 5-minute interval in data frame "ave_steps_interval" to replace NA in data frame "data_na"
 step <-0
 while (step <= 2355)
@@ -191,10 +201,10 @@ new_activity$interval <- factor(new_activity$interval)
 sum_steps <- aggregate(steps ~ date, data=new_activity, sum)
 
 # Plot the histogram of the total number of steps taken each day
-barplot(sum_steps$steps, names.arg=sum_steps$year, xlab="date", ylab="Total number of steps")
+barplot(sum_steps$steps, names.arg=sum_steps$year, xlab="", ylab="Total number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
 
 
 ```r
@@ -336,4 +346,4 @@ mtext("Number of steps", side=2, outer=TRUE)
 mtext("Interval", side=1, outer=TRUE)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-14-1.png) 
